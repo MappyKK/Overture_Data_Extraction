@@ -26,6 +26,8 @@ Buildings Layer
 
     s3://overturemaps-us-west-2/release/2025-06-25.0/theme=buildings/type=building/*.parquet
 
+Install duckdb, pyarrow, and geopandas before running
+
 # Gathering data through DuckDB script (Fully Tested):
 
 Time to run: 13.9 hours
@@ -38,19 +40,19 @@ Looped through a dictionary of country codes (two-letter ISO 3166-1 standard) wi
 
 Estimated time to run: 8-12+ hours at least
 
-## Step 1:
+### Step 1:
 
 Downloads GeoJSON data of buildings into 10 by 10 degree chunks (Could speed up the process by using the Parquet data format)
 
 The Chunking process is run 4 times for each hemisphere (NE, NW, SE, SW)
 
-## Step 2:
+### Step 2:
 
 Spatial Join the Divisions Area Layer with each building chunk
 
 The Spatial Join process is run 4 times for each hemisphere (NE, NW, SE, SW)
 
-## Step 3: 
+### Step 3: 
 
 Select buildings by their country code and export data using a dictionary of country codes (two-letter ISO 3166-1 standard) with their corresponding country names
 
